@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Chen — Full Stack Developer</title>
+  <meta name="description" content="Full Stack Developer specializing in modern web experiences. Building the future, one pixel at a time.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loader" id="loader"><div class="loader-ring"></div></div>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Particles -->
+<canvas id="particles"></canvas>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">alex.dev</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#tech">Tech Stack</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+  <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+  <a href="#tech" onclick="closeMobileMenu()">Tech Stack</a>
+  <a href="#experience" onclick="closeMobileMenu()">Experience</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <span class="dot"></span>
+      Available for work
+    </div>
+    <h1 class="reveal reveal-delay-1">
+      Hi, I'm <span class="gradient-text">Alex Chen</span>
+    </h1>
+    <p class="hero-subtitle reveal reveal-delay-2">
+      Full Stack Developer crafting exceptional digital experiences with clean code and modern design.
+    </p>
+    <div class="hero-cta reveal reveal-delay-3">
+      <a href="#projects" class="btn btn-primary">View Projects →</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="section-label reveal">About Me</div>
+  <h2 class="section-title reveal">Passionate about building<br>the future of the web.</h2>
+  <div class="about-grid">
+    <div class="about-image reveal">
+      <div class="about-image-inner">👨‍💻</div>
+    </div>
+    <div class="about-text">
+      <p class="reveal">
+        I'm a Full Stack Developer with 4+ years of experience building modern web applications. I specialize in React, Node.js, and cloud technologies, with a passion for creating intuitive and performant user experiences.
+      </p>
+      <p class="reveal">
+        When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or writing about web development best practices.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card reveal">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <div class="section-label reveal">Skills</div>
+  <h2 class="section-title reveal">Technologies I work with.</h2>
+  <p class="section-subtitle reveal">Constantly learning and expanding my toolkit to deliver the best solutions.</p>
+  <div class="skills-grid">
+    <div class="skill-item reveal" data-skill="92">
+      <div class="skill-header"><span class="skill-name">React / Next.js</span><span class="skill-percent">92%</span></div>
+      <div class="skill-bar"><div class="skill-progress" data-width="92"></div></div>
+    </div>
+    <div class="skill-item reveal" data-skill="88">
+      <div class="skill-header"><span class="skill-name">Node.js / Express</span><span class="skill-percent">88%</span></div>
+      <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+    </div>
+    <div class="skill-item reveal" data-skill="95">
+      <div class="skill-header"><span class="skill-name">JavaScript / TypeScript</span><span class="skill-percent">95%</span></div>
+      <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+    </div>
+    <div class="skill-item reveal" data-skill="85">
+      <div class="skill-header"><span class="skill-name">Python / Django</span><span class="skill-percent">85%</span></div>
+      <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+    </div>
+    <div class="skill-item reveal" data-skill="90">
+      <div class="skill-header"><span class="skill-name">HTML / CSS / Tailwind</span><span class="skill-percent">90%</span></div>
+      <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+    </div>
+    <div class="skill-item reveal" data-skill="80">
+      <div class="skill-header"><span class="skill-name">MySQL / MongoDB</span><span class="skill-percent">80%</span></div>
+      <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="section-label reveal">Projects</div>
+  <h2 class="section-title reveal">Featured work.</h2>
+  <p class="section-subtitle reveal">A selection of projects I've built with care and attention to detail.</p>
+  <div class="project-filters reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="react">React</button>
+    <button class="filter-btn" data-filter="node">Node.js</button>
+    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+  </div>
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <div class="project-card reveal" data-category="react fullstack">
+      <div class="project-image">
+        <div class="project-image-bg" style="background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4); width:100%; height:100%;"></div>
+        <div class="project-overlay">
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3 class="project-title">E-Commerce Platform</h3>
+        <p class="project-desc">A modern e-commerce platform with real-time inventory, payment integration, and admin dashboard.</p>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">MongoDB</span>
+          <span class="project-tag">Stripe</span>
+        </div>
+      </div>
+    </div>
+    <!-- Project 2 -->
+    <div class="project-card reveal reveal-delay-1" data-category="react">
+      <div class="project-image">
+        <div class="project-image-bg" style="background: linear-gradient(135deg, #f59e0b, #ef4444, #ec4899); width:100%; height:100%;"></div>
+        <div class="project-overlay">
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3 class="project-title">Task Management App</h3>
+        <p class="project-desc">Collaborative task manager with real-time updates, drag-and-drop, and team workspaces.</p>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Firebase</span>
+          <span class="project-tag">Tailwind</span>
+        </div>
+      </div>
+    </div>
+    <!-- Project 3 -->
+    <div class="project-card reveal reveal-delay-2" data-category="node fullstack">
+      <div class="project-image">
+        <div class="project-image-bg" style="background: linear-gradient(135deg, #10b981, #06b6d4, #6366f1); width:100%; height:100%;"></div>
+        <div class="project-overlay">
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3 class="project-title">AI Chat Dashboard</h3>
+        <p class="project-desc">Real-time AI chatbot dashboard with analytics, conversation history, and custom training.</p>
+        <div class="project-tags">
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">OpenAI</span>
+          <span class="project-tag">WebSocket</span>
+        </div>
+      </div>
+    </div>
+    <!-- Project 4 -->
+    <div class="project-card reveal" data-category="fullstack node">
+      <div class="project-image">
+        <div class="project-image-bg" style="background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b); width:100%; height:100%;"></div>
+        <div class="project-overlay">
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3 class="project-title">Social Media API</h3>
+        <p class="project-desc">RESTful API with JWT auth, rate limiting, media uploads, and comprehensive documentation.</p>
+        <div class="project-tags">
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">Express</span>
+          <span class="project-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section id="tech">
+  <div class="section-label reveal">Tech Stack</div>
+  <h2 class="section-title reveal">Tools of the trade.</h2>
+  <p class="section-subtitle reveal">The technologies and tools I use to bring ideas to life.</p>
+  <div class="tech-grid">
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML5</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS3</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"><span>Next.js</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"><span>MongoDB</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span></div>
+    <div class="tech-item reveal"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>Tailwind</span></div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+  <div class="section-label reveal">Experience</div>
+  <h2 class="section-title reveal">My journey so far.</h2>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">2024 — Present</div>
+        <div class="timeline-title">Senior Full Stack Developer</div>
+        <div class="timeline-company">TechCorp Inc.</div>
+        <div class="timeline-desc">Leading development of scalable web applications using React and Node.js. Architecting microservices and mentoring junior developers.</div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">2022 — 2024</div>
+        <div class="timeline-title">Full Stack Developer</div>
+        <div class="timeline-company">StartupXYZ</div>
+        <div class="timeline-desc">Built and maintained multiple client-facing applications. Implemented CI/CD pipelines and improved load times by 40%.</div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">2020 — 2022</div>
+        <div class="timeline-title">Frontend Developer</div>
+        <div class="timeline-company">Digital Agency Co.</div>
+        <div class="timeline-desc">Developed responsive web interfaces for enterprise clients. Specialized in React, animation libraries, and accessibility.</div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">2018 — 2020</div>
+        <div class="timeline-title">Computer Science Degree</div>
+        <div class="timeline-company">University of Technology</div>
+        <div class="timeline-desc">B.S. in Computer Science with focus on software engineering and web technologies. Graduated with honors.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="section-label reveal">Contact</div>
+  <h2 class="section-title reveal">Let's work together.</h2>
+  <p class="section-subtitle reveal">Have a project in mind? I'd love to hear about it. Let's connect and build something great.</p>
+  <div class="contact-grid">
+    <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <input type="text" placeholder="Your Name" required id="contactName">
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Your Email" required id="contactEmail">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Subject" id="contactSubject">
+      </div>
+      <div class="form-group">
+        <textarea placeholder="Your Message" required id="contactMessage"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="contactSubmit">Send Message →</button>
+    </form>
+    <div class="contact-info reveal reveal-delay-1">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-card-title">Email</div>
+          <div class="contact-card-text">alex@example.com</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-card-title">Location</div>
+          <div class="contact-card-text">San Francisco, CA</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-card-title">Availability</div>
+          <div class="contact-card-text">Open to freelance & full-time</div>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" class="social-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:alex@example.com" class="social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>© 2026 Alex Chen. Built with passion and clean code.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
