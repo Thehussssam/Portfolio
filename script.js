@@ -5,7 +5,30 @@ window.addEventListener('load', () => {
   }, 1200);
 });
 
+// ====== CUSTOM CURSOR ======
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
 
+window.addEventListener('mousemove', (e) => {
+  if (cursorDot) {
+    cursorDot.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+  }
+  if (cursorRing) {
+    cursorRing.animate({
+      transform: `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`
+    }, { duration: 150, fill: "forwards" });
+  }
+});
+
+const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-item, input, textarea');
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (cursorRing) cursorRing.classList.add('hover');
+  });
+  el.addEventListener('mouseleave', () => {
+    if (cursorRing) cursorRing.classList.remove('hover');
+  });
+});
 
 // ====== PARTICLES ======
 const canvas = document.getElementById('particles');
@@ -177,5 +200,47 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  });
+});
+
+// ====== TYPING EFFECT ======
+const typingText = document.getElementById('typingText');
+if (typingText) {
+  const words = ['modern web experiences.', 'scalable applications.', 'beautiful interfaces.', 'futuristic designs.'];
+  let i = 0, j = 0, isDeleting = false, isEnd = false;
+  function type() {
+    isEnd = false;
+    typingText.innerHTML = words[i].substring(0, j);
+    if (!isDeleting && j < words[i].length) { j++; setTimeout(type, 80); }
+    else if (isDeleting && j > 0) { j--; setTimeout(type, 40); }
+    else if (j == words[i].length) { isEnd = true; isDeleting = true; setTimeout(type, 2000); }
+    else if (j == 0) { isDeleting = false; i = (i + 1) % words.length; setTimeout(type, 500); }
+  }
+  type();
+}
+
+// ====== PREMIUM 3D TILT & SPOTLIGHT ======
+const cards3D = document.querySelectorAll('.project-card');
+cards3D.forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Set properties for spotlight
+    card.style.setProperty('--mouseX', `${x}px`);
+    card.style.setProperty('--mouseY', `${y}px`);
+    
+    // Calculate 3D tilt
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -8; // Max 8 deg
+    const rotateY = ((x - centerX) / centerX) * 8;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
   });
 });
